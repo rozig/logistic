@@ -1,0 +1,204 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="not-ie" lang="en"> <!--<![endif]-->
+<head>
+  <!-- Basic Meta Tags -->
+  <meta charset="utf-8">
+  <!-- Title -->
+  <title>UB Post</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--[if (gte IE 9)|!(IE)]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <![endif]--> 
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.png' %}" rel="icon" type="image/png">
+    <!-- Bootstrap -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Font awesome -->
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet"> 
+
+    <!-- Animation -->
+    <link href="{% static 'css/animate.css' %}" rel="stylesheet">
+
+    <!-- Owl Carousel -->
+    <link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet">
+
+    <!-- Flexslider -->
+    <link href="{% static 'css/flexslider.css' %}" rel="stylesheet"> 
+
+    <!-- Styles -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+
+    <!-- Web Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,600,800,700' rel='stylesheet' type='text/css'>
+
+    <script src="{% static 'js/modernizr.custom.97074.js' %}"></script>
+  </head>
+  <body>
+   <!-- Header -->
+   <header> 
+    <div class="row">
+      <div class="col-md-12">
+        <div class="top-container">
+          <!-- Logo -->                       
+          <a href="#" class="logo" title="Home"><img src="{% static '' %}img/logo.png" alt=""></a>
+        </div>
+      </div> 
+    </div> 
+
+    <!-- Nav -->
+    <div class="navbar navbar-custom" id="nav" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+
+            <li>
+              <a href="/" class="dropdown-toggle" data-toggle="dropdown">Нүүр хуудас</a>
+            </li>
+            <li class="dropdown">
+              <a href="#services" data-toggle="dropdown" class="dropdown-toggle">Бидний тухай</a>
+            </li>
+
+            <li class="dropdown">
+              <a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">Үйлчилгээ</a>
+            </li>
+
+            <li class="dropdown">
+              <a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">Мэдээлэл</a>
+            </li>
+
+            <li class="dropdown">
+              <a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">Холбоо барих</a>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+  </header>
+    {% block content %}
+    {% endblock %}
+  <!-- FOOTER-Top
+    ================================================== -->
+    <section class="footer2 bg-dark">
+      <div class="container">
+        <div class="row">
+
+          <!-- About-US-->
+          <div class="col-md-3 col-sm-6 footer-text">
+            <h4>About <span>&nbsp;us</span></h4>
+            <p>Lorem ipsum dolor sit amet, consect eturadi piscing elit. Praesent quam nisi, malesu ada aleo nec, luctus vive rra quam nisi, malesua da a nisi uada.</p>
+              <ul class="social-links margin-t-35">
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-github"></i></a></li>
+                <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+              </ul>
+          </div>
+
+          <!-- Recent-Post-->
+          <div class="col-md-3 col-sm-6">
+            <h4>Recent <span>&nbsp;Posts</span></h4>
+            <ul class="list-unstyled">
+              <li>
+                <a class="block" href="#">Praesent est laborum dolo rumes fugats.</a>
+                <br>
+                <small>August 16, 2014</small>
+              </li>
+              <li>
+                <a class="block" href="#">Etha rums ser quidem rerum facilis</a>
+                <br>
+                <small>August 16, 2014</small>
+              </li>
+              <li>
+                <a class="block" href="#">nemo minima rerums unsers sadip</a>
+                <br>
+                <small>August 16, 2014</small>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Recent-Tweets-->
+          <div class="col-md-3 col-sm-6">
+            <h4>Recent <span>&nbsp;Tweets</span></h4>
+            <ul class="list-unstyled">
+              <li>
+                <i class="fa fa-twitter"></i> <a href="#">@John Doe</a><br> Praesent quam nisi, malesuada a leo nec, luctus viverra quam nisi, malesuada a nisi.<br><small>8 mins ago</small>
+              </li>
+              <li>
+                <i class="fa fa-twitter"></i> <a href="#">@John Doe</a><br> Remonde sequat ipsum dolor lorem sit consectetur adipiscing <br>  <small>8 mins ago</small>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Flickr-Photos-->
+          <div class="col-md-3 col-sm-6">
+            <h4>Flickr <span>&nbsp;Photos</span></h4>
+            <ul class="flickr-img">
+              <li><a href="#"><img class="img-responsive" src="{% static 'img/portfolio/port3.jpg' %}" alt=""></a></li>
+              <li><a href="#"><img class="img-responsive" src="{% static 'img/portfolio/port4.jpg' %}" alt=""></a></li>
+              <li><a href="#"><img class="img-responsive" src="{% static 'img/portfolio/port2.jpg' %}" alt=""></a></li>
+              <li><a href="#"><img class="img-responsive" src="{% static 'img/portfolio/port6.jpg' %}" alt=""></a></li>
+              <li><a href="#"><img class="img-responsive" src="{% static 'img/portfolio/port7.jpg' %}" alt=""></a></li>
+              <li><a href="#"><img class="img-responsive" src="{% static 'img/portfolio/port8.jpg' %}" alt=""></a></li>
+            </ul>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- End Footer-top-->
+    <!-- FOOTER
+    ================================================== -->
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-2">Copyright &copy;2016 UB Post.</p>
+      </div>
+    </footer>
+    <!-- End Footer-->
+   <!-- JavaScripts -->
+   <script type="text/javascript" src="{% static 'js/jquery-1.10.2.js' %}"></script> 
+   <!-- Bootstrap -->                                                      
+   <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+   <!-- Scroll -->
+   <script src="{% static 'js/scroll.js' %}"></script>
+   <!-- Hover-effect --> 
+   <script type="text/javascript" src="{% static 'js/jquery.hoverdir.js' %}"></script>
+   <script type="text/javascript">
+   $(function() { $(' .portfolio-wrapper > .effect ').each( function() { $(this).hoverdir(); } );});
+   </script>
+   <!-- Bxslider -->  
+   <script src="{% static 'js/owl.carousel.js' %}"></script>
+   <!-- Sticky --> 
+   <script type="text/javascript" src="{% static 'js/jquery.sticky.js' %}"></script> 
+   <!-- Tinynav --> 
+   <script type="text/javascript" src="{% static 'js/tinynav.min.js' %}"></script>
+   <!-- wow/animation -->  
+   <script src="{% static 'js/wow.min.js' %}"></script>
+   <script>new WOW().init();</script>  
+   <!-- Tinynav --> 
+   <script type="text/javascript" src="{% static 'js/jquery.flexslider.js' %}"></script>
+   <!-- Custom --> 
+   <script type="text/javascript" src="{% static 'js/main01.js' %}"></script>
+  </body>
+</html>

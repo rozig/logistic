@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Delivery Detail</title>
+</head>
+<body>
+    <div class="details">
+    	{% if delivery.Delivery_ID %}
+	        <div class="id">
+	            {{ delivery.Delivery_ID }}
+	        </div>
+	    {% endif %}
+        <h1>{{ delivery.Delivery_ID }}</a></h1>
+        <p>{{ delivery.Delivery_Total|linebreaks }}</p>
+    </div>
+</body>
+</html>
