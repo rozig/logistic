@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
-
-from django.db import models
+from django.utils.crypto import get_random_string
+from django.db import models, IntegrityError
 
 class Delivery(models.Model):
-    Delivery_ID = models.IntegerField(primary_key=True, null=False, verbose_name=u'Хүргэлтийн дугаар')
+    Delivery_ID = models.CharField(primary_key=True, max_length=8, blank=True, editable=False, null=False, verbose_name=u'Хүргэлтийн дугаар')
     Delivery_Reg_Time = models.DateTimeField(auto_now_add=True, null=False, verbose_name=u'Бүртгэгдсэн огноо')
     Delivery_Est_Date = models.DateField(null=False, verbose_name=u'Хүргэгдэх огноо')
     Delivery_Sender = models.CharField(max_length=45, null=False, verbose_name=u'Илгээгчийн нэр')
@@ -16,18 +16,33 @@ class Delivery(models.Model):
     Delivery_Recipient_Phone = models.CharField(max_length=8, null=False, verbose_name=u'Хүлээн авагчийн утасны дугаар')
     Delivery_To_Address = models.CharField(max_length=255, null=False, verbose_name=u'Хүлээн авагчийн хаяг')
     Delivery_Total = models.FloatField(null=False, verbose_name=u'Нийт төлбөр')
-    Status_ID = models.ForeignKey('registration.Status')
-    Shipment_ID = models.ManyToManyField('registration.Shipment')
+    Status_ID = models.ForeignKey('registration.Status', verbose_name=u'Төлөв')
+    Shipment_ID = models.ForeignKey('registration.Shipment', verbose_name=u'Ачаанууд')
 
     def __unicode__(self):
         return u'%s' % self.Delivery_ID
+
+    def save(self, *args, **kwargs):
+        if self.Delivery_ID:
+            super(Delivery, self).save(*args, **kwargs)
+            return
+
+        unique = False
+        while not unique:
+            try:
+                self.Delivery_ID = get_random_string(length=8)
+                super(Delivery, self).save(*args, **kwargs)
+            except IntegrityError:
+                self.Delivery_ID = get_random_string(length=8)
+            else:
+                unique = True
 
     class Meta:
         verbose_name = u'Хүргэлт'
         verbose_name_plural = u'Хүргэлтүүд'
 
 class Status(models.Model):
-    Status_ID = models.IntegerField(primary_key=True, null=False, verbose_name=u'Төлөвийн дугаар')
+    Status_ID = models.AutoField(primary_key=True, null=False, verbose_name=u'Төлөвийн дугаар')
     Status = models.CharField(max_length=45, null=False, verbose_name=u'Төлөвийн нэр')
 
     def __unicode__(self):
@@ -38,7 +53,7 @@ class Status(models.Model):
         verbose_name_plural = u'Төлвүүд'
 
 class Shipment(models.Model):
-    Shipment_ID = models.IntegerField(primary_key=True, null=False, verbose_name=u'Ачааны дугаар')
+    Shipment_ID = models.AutoField(primary_key=True, null=False, verbose_name=u'Ачааны дугаар')
     Shipment_Piece = models.IntegerField(null=False, verbose_name=u'Ачааны тоо')
     Shipment_Weight = models.FloatField(null=False, verbose_name=u'Ачааны жин')
     Shipment_Type = models.CharField(max_length=45, null=False, verbose_name=u'Ачааны төрөл')
@@ -56,7 +71,7 @@ class Shipment(models.Model):
         verbose_name_plural = u'Ачаанууд'
 
 class Indication(models.Model):
-    Indication_ID = models.IntegerField(primary_key=True, null=False, verbose_name=u'Шинж чанарын дугаар')
+    Indication_ID = models.AutoField(primary_key=True, null=False, verbose_name=u'Шинж чанарын дугаар')
     Indication = models.CharField(max_length=45, null=False, verbose_name=u'Шинж чанарын нэр')
 
     def __unicode__(self):

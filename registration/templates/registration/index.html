@@ -1,37 +1,41 @@
 {% extends 'registration/base.html' %}
 {% load staticfiles %}
 {% block content %}
-<!-- home 
-    ================================================== -->
-    <div class="home-section" id="default-slider">
-      <div class="flexslider sider-down">
-        <ul class="slides">
-          <li>
-            <div class="flexcaption">
-              <h1 class="wow slideInRight">Welcome to <span class="change-color">Evershine</span></h1>
-              <p class="wow slideInLeft">we design and develop awesome websites and smart applications, impactful identities using the latest technology.</p>
-              <button type="button" class="btn btn-info">Learn More</button>
-            </div>
-          </li>
-          <li>
-            <div class="flexcaption">
-              <h1 class="wow pulse">We Create Awesome <span class="change-color">Theme</span></h1>
-              <p class="wow pulse">we design and develop awesome websites and smart applications, impactful identities using the latest technology.</p>
-              <button type="button" class="btn btn-info">Learn More</button>
-            </div>
-          </li>
-          <li>
-            <div class="flexcaption">
-             <h1 class="wow rollIn">We Are creative <span class="change-color">Agency</span></h1>
-             <p class="wow zoomInRight">we design and develop awesome websites and smart applications, impactful identities using the latest technology.</p> 
-             <button type="button" class="btn btn-info">Learn More</button>
-           </div>
-         </li>
-       </ul>
-     </div>
-     <div class="bg-home">
+<!-- home
+  ================================================== -->
+  <div class="home-section" id="default-slider">
+    <div class="flexslider sider-down">
+      <ul class="slides">
+        <li>
+          <div class="flexcaption">
+            <h1 class="wow slideInRight">Хүргэлт <span class="change-color">шалгах</span></h1>
+            <!--<input type="text" class="wow slideInLeft form-control" id="delivery_box" name="delivery_box" style="width:400px;" placeholder="Хүргэлтийн дугаараа энд бичнэ үү."></input></br></br>
+            -->
+            <form action="/delivery/" method="GET">
+              <input type="text" class="wow slideInLeft form-control" style="width:400px" name="id" placeholder="Энд хүргэлтийн дугаараа бичнэ үү">
+              <input type="submit" class="btn btn-info wow slideInRight" value="ШАЛГАХ" style="margin-top: -5px;" />
+            </form>
+          </div>
+        </li>
+        <!--<li>
+          <div class="flexcaption">
+            <h1 class="wow pulse">We Create Awesome <span class="change-color">Theme</span></h1>
+            <p class="wow pulse">we design and develop awesome websites and smart applications, impactful identities using the latest technology.</p>
+            <button type="button" class="btn btn-info">Learn More</button>
+          </div>
+        </li>
+        <li>
+          <div class="flexcaption">
+            <h1 class="wow rollIn">We Are creative <span class="change-color">Agency</span></h1>
+            <p class="wow zoomInRight">we design and develop awesome websites and smart applications, impactful identities using the latest technology.</p> 
+            <button type="button" class="btn btn-info">Learn More</button>
+          </div>
+        </li>-->
+      </ul>
+    </div>
+    <div class="bg-home">
       <img src="{% static 'img/img4.jpg' %}" alt="background">
     </div>
   </div>
   <!-- End home -->
-  {% endblock %}
+{% endblock %}

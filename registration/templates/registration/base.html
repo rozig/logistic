@@ -8,7 +8,7 @@
   <!-- Basic Meta Tags -->
   <meta charset="utf-8">
   <!-- Title -->
-  <title>UB Post</title>
+  <title>Илгээмж хүргэлтийн үйлчилгээ</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,32 +16,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <![endif]--> 
-
     <!-- Favicon -->
     <link href="{% static 'img/favicon.png' %}" rel="icon" type="image/png">
     <!-- Bootstrap -->
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-
     <!-- Font awesome -->
     <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet"> 
-
     <!-- Animation -->
     <link href="{% static 'css/animate.css' %}" rel="stylesheet">
-
     <!-- Owl Carousel -->
     <link href="{% static 'css/owl.carousel.css' %}" rel="stylesheet">
-
     <!-- Flexslider -->
     <link href="{% static 'css/flexslider.css' %}" rel="stylesheet"> 
-
     <!-- Styles -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
-
-
     <!-- Web Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,600,800,700' rel='stylesheet' type='text/css'>
-
     <script src="{% static 'js/modernizr.custom.97074.js' %}"></script>
   </head>
   <body>
@@ -51,7 +42,7 @@
       <div class="col-md-12">
         <div class="top-container">
           <!-- Logo -->                       
-          <a href="#" class="logo" title="Home"><img src="{% static '' %}img/logo.png" alt=""></a>
+          <a href="#" class="logo" title="Home"><img src="{% static 'img/logo.png' %}" alt=""></a>
         </div>
       </div> 
     </div> 
@@ -71,22 +62,22 @@
           <ul class="nav navbar-nav">
 
             <li>
-              <a href="/" class="dropdown-toggle" data-toggle="dropdown">Нүүр хуудас</a>
+              <a href="{% url 'registration:index' %}" >Нүүр хуудас</a>
             </li>
-            <li class="dropdown">
-              <a href="#services" data-toggle="dropdown" class="dropdown-toggle">Бидний тухай</a>
-            </li>
-
-            <li class="dropdown">
-              <a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">Үйлчилгээ</a>
+            <li>
+              <a href="">Бидний тухай</a>
             </li>
 
-            <li class="dropdown">
-              <a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">Мэдээлэл</a>
+            <li>
+              <a href="">Үйлчилгээ</a>
             </li>
 
-            <li class="dropdown">
-              <a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">Холбоо барих</a>
+            <li>
+              <a href="">Мэдээлэл</a>
+            </li>
+
+            <li>
+              <a href="">Холбоо барих</a>
             </li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -172,7 +163,7 @@
 
     <footer class="footer">
       <div class="container">
-        <p class="text-2">Copyright &copy;2016 UB Post.</p>
+        <p class="text-2">Copyright &copy;2016.</p>
       </div>
     </footer>
     <!-- End Footer-->

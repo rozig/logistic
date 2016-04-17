@@ -1,0 +1,140 @@
+{% extends 'registration/base.html' %}
+{% load staticfiles %}
+{% block content %}
+<!-- HEADER-TITLE
+================================================== -->
+<div class="row">
+  <div class="header-wrapper text-ca text-2">
+    <h3>Contact</h3>
+    <ol class="breadcrumb">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Contact</a></li>
+      <li class="active">Contact</li>
+    </ol>
+  </div>
+</div>
+<!-- End Header-title -->
+<!-- Contact-Details
+================================================== -->
+<section class="contact_page padding_100 text-left">
+  <div class="container">
+    <div class="col-md-8 col-sm-8">
+      <form role="form" method="post">
+        <div class="row">
+          <div class="col-md-6 col-sm-6">
+              <div class="form-group form-custom">
+                <label class="h5 text-bold-7">Name</label>
+                <input type="text" class="form-control" name="name"  placeholder="Enter name" title="Please enter your name (at least 2 characters)">
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="form-group form-custom">
+                <label class="h5 text-bold-7">Email</label>
+                <input type="email" class="form-control" name="email" placeholder="Enter email" title="Please enter a valid email address">
+              </div>
+            </div>
+        </div> 
+        <!-- End of row -->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group form-custom">
+            <label class="h5 text-bold-7">Message</label>
+            <textarea name="comment" class="form-control" cols="3" rows="5" placeholder="Enter your message…" title="Please enter your message (at least 10 characters)"></textarea>
+          </div>
+          </div>
+        </div> 
+        <!-- End of row -->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <button type="submit" class="btn btn-info">Send Message</button>
+            </div>
+          </div>
+        </div> <!-- End of row -->
+      </form> <!-- End of Form -->
+    </div> <!-- End of Col-8 -->
+    <!-- Address -->
+    <div class="col-md-3 col-sm-3 col-md-offset-1 col-sm-offset-1">
+      <h4 class="h4 text-ca text-bold-7 padding-t-b-10">Head Office : </h4>
+      <address>
+        <p><i class="fa fa-map-marker text-16 txt-custom"></i> &nbsp;123,Street name,San Francisco,CA</p>
+        <p><i class="fa fa-phone text-16 txt-custom"></i> &nbsp; (123) 4567 89 012</p>
+        <p><i class="fa fa-envelope-o text-16 txt-custom"></i> &nbsp; youremail@domain.com</p>
+        <p><i class="fa fa-globe text-16 txt-custom"></i> &nbsp; <a href="#">www.domain.com</a></p>
+      </address>
+    </div> <!-- End of Col-3 -->
+  </div> <!-- End Of container -->
+</section>
+<!-- End of Contact -->
+<!-- Offices List
+================================================== -->
+<section class="padding_100">
+  <div class="container">
+    <div class="row img-w padding_30">
+
+      <!-- Office 01 -->
+      <div class="col-md-6 col-sm-6">
+        <div class="col-md-6 col-sm-6">
+          <img src="img/office/office1.jpg" alt=""/>
+        </div>
+        <div class="col-lg-6 col-md-6  text-left">
+          <h4 class="h4 text-bold-7 padding-10">Office 01</h4>
+          <address>
+            <strong>Evershine Pvt Ltd.</strong><br>
+            123,Street name<br>
+            San Francisco, CA 94107<br>
+            <abbr title="Phone">P:</abbr> (123) 456-7890
+          </address>
+        </div>
+      </div>
+      <!-- Office 02 -->
+      <div class="col-md-6 col-sm-6">
+        <div class="col-md-6 col-sm-6">
+          <img src="img/office/office2.jpg" alt=""/>
+        </div>
+        <div class="col-lg-6 col-md-6 text-left">
+          <h4 class="h4 text-bold-7 padding-10">Office 02</h4>
+          <address>
+            <strong>Evershine Pvt Ltd.</strong><br>
+            123,Street name<br>
+            San Francisco, CA 94107<br>
+            <abbr title="Phone">P:</abbr> (123) 456-7890
+          </address>
+        </div>
+      </div>
+    </div> <!-- End of Row -->
+    <div class="row img-w padding_30">
+      <!-- Office 03 -->
+      <div class="col-md-6 col-sm-6">
+        <div class="col-md-6 col-sm-6">
+          <img src="img/office/office3.jpg" alt=""/>
+        </div>
+        <div class="col-lg-6 col-md-6 text-left">
+          <h4 class="h4 text-bold-7 padding-10">Office 03</h4>
+          <address>
+            <strong>Evershine Pvt Ltd.</strong><br>
+            123,Street name<br>
+            San Francisco, CA 94107<br>
+            <abbr title="Phone">P:</abbr> (123) 456-7890
+          </address>
+        </div>
+      </div>
+      <!-- Office 04 -->
+      <div class="col-md-6 col-sm-6">
+        <div class="col-md-6 col-sm-6">
+          <img src="img/office/office4.jpg" alt=""/>
+        </div>
+        <div class="col-lg-6 col-md-6 text-left">
+          <h4 class="h4 text-bold-7 padding-10">Office 04</h4>
+          <address>
+            <strong>Evershine Pvt Ltd.</strong><br>
+            123,Street name<br>
+            San Francisco, CA 94107<br>
+            <abbr title="Phone">P:</abbr> (123) 456-7890
+          </address>
+        </div>
+      </div>
+    </div> <!-- End of Row -->
+  </div>  <!-- End Of container -->
+</section>
+<!-- end of Contact -->

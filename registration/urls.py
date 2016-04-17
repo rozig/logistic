@@ -3,5 +3,6 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^delivery/(?P<pk>\d+)/$', views.delivery_detail, name='delivery_detail'),
+    url(r'^delivery/$', views.delivery_detail, name='delivery_detail'),
+    #(r'^delivery/$',views.delivery_detail, name='delivery_detail')
 ]
