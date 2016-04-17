@@ -80,3 +80,25 @@ class Indication(models.Model):
     class Meta:
         verbose_name = u'Шинж чанар'
         verbose_name_plural = u'Шинж чанарууд'
+
+class State(models.Model):
+    State_ID = models.AutoField(primary_key=True, null=False, verbose_name=u'Аймаг/нийслэлийн дугаар')
+    State = models.CharField(max_length=45, null=False, verbose_name=u'Аймаг/нийслэлийн нэр')
+
+    def __unicode__(self):
+        return u'%s' % self.State
+
+    class Meta:
+        verbose_name = u'Аймаг/нийслэл'
+
+class SubState(object):
+    SubState_ID = models.AutoField(primary_key=True, null=False, verbose_name=u'Сум/дүүргийн дугаар')
+    SubState = models.CharField(max_length=45, null=False, verbose_name=u'Сум/дүүргийн нэр')
+
+    def __unicode__(self):
+        return u'%s' % self.SubState
+
+    class Meta:
+        verbose_name = u'Сум/дүүрэг'
+            
+        
