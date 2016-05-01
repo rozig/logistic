@@ -17,7 +17,7 @@ class Delivery(models.Model):
     Delivery_To_Address = models.CharField(max_length=255, null=False, verbose_name=u'Хүлээн авагчийн хаяг')
     Delivery_Total = models.FloatField(null=False, verbose_name=u'Нийт төлбөр')
     Status_ID = models.ForeignKey('registration.Status', verbose_name=u'Төлөв')
-    Shipment_ID = models.ForeignKey('registration.Shipment', verbose_name=u'Ачаанууд')
+    #Shipment_ID = models.ForeignKey('registration.Shipment', verbose_name=u'Ачаанууд')
 
     def __unicode__(self):
         return u'%s' % self.Delivery_ID
@@ -59,6 +59,7 @@ class Shipment(models.Model):
     Shipment_Type = models.CharField(max_length=45, null=False, verbose_name=u'Ачааны төрөл')
     Shipment_Note = models.TextField(max_length=500, verbose_name=u'Ачааны тэмдэглэл')
     Indication_ID = models.ManyToManyField('registration.Indication', verbose_name=u'Шинж чанар')
+    Delivery_ID = models.ForeignKey(Delivery, verbose_name=u'Хүргэлтийн дугаар');
 
     def __unicode__(self):
         return u'%s' % self.Shipment_ID

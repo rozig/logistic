@@ -10,4 +10,3 @@ def delivery_detail(request):
         identify = request.GET['id']
     	delivery = get_object_or_404(Delivery, pk=identify)
         return render(request, 'registration/view_delivery.html', {'delivery': delivery})
-    

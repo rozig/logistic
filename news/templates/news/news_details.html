@@ -1,0 +1,36 @@
+{% extends 'registration/base.html' %}
+{% load staticfiles %}
+{% block content %}
+    <section class="section">
+      <div class="container">
+        <div class=" col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1 text-left">
+          <img class="img-responsive" src="{{ post.Image.url }}" alt="blog"/>
+          <h3>{{ post.Title }}</h3>
+          <div class="blog-1_meta">
+            <span>{{ post.Published_Date }}</span>
+            <span>|</span>
+            <span>{{ post.Author }}</span>
+            <span>|</span>
+            <span><a href="#"><i class="fa fa-comments-o"></i> &nbsp;0</a></span>
+          </div>
+          <hr>
+          <p>{{ post.Text }}</p>
+
+          <hr>
+
+          <div class="blog_author text-center">
+            <div class="row">
+              <div class="col-md-3 col-sm-4">
+                <img src="img/team/team1.jpg" alt="" />
+                <h5>John Deo</h5>
+              </div>
+              <div class="col-md-9 col-sm-8">
+                <p>Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh. Etiam cursus leo vel metus. Nulla facilisi.Aenean nec eros.</p>
+              </div>
+            </div>
+          </div>
+        </div><!-- End of Column -->
+      </div><!-- End of Container -->
+    </section>
+    <!-- end Blog-detail -->
+{% endblock %}
