@@ -52,12 +52,22 @@ class Status(models.Model):
         verbose_name = u'Төлөв'
         verbose_name_plural = u'Төлвүүд'
 
+class Type(models.Model):
+    Type_ID = models.AutoField(primary_key=True, null=False, verbose_name=u'Төрлийн дугаар')
+    Type = models.CharField(max_length=45, null=False, verbose_name=u'Төрлийн нэр')
+
+    def __unicode__(self):
+        return u'%s' % self.Type
+
+    class Meta:
+        verbose_name = u'Ачааны төрөл'
+        verbose_name_plural = u'Ачааны төрлүүд'
+
 class Shipment(models.Model):
     Shipment_ID = models.AutoField(primary_key=True, null=False, verbose_name=u'Ачааны дугаар')
-    Shipment_Piece = models.IntegerField(null=False, verbose_name=u'Ачааны тоо')
     Shipment_Weight = models.FloatField(null=False, verbose_name=u'Ачааны жин')
-    Shipment_Type = models.CharField(max_length=45, null=False, verbose_name=u'Ачааны төрөл')
-    Shipment_Note = models.TextField(max_length=500, verbose_name=u'Ачааны тэмдэглэл')
+    Type_ID = models.ForeignKey(Type, verbose_name=u'Ачааны төрөл')
+    Shipment_Note = models.TextField(max_length=500, blank=True, verbose_name=u'Ачааны тэмдэглэл')
     Indication_ID = models.ManyToManyField('registration.Indication', verbose_name=u'Шинж чанар')
     Delivery_ID = models.ForeignKey(Delivery, verbose_name=u'Хүргэлтийн дугаар');
 

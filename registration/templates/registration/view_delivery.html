@@ -13,68 +13,30 @@
 
 <!-- TABS
 ================================================== -->
-<div class="padding_50">
+<div class="padding_30">
   <div class="container">
-
-    <h3 class="h3 text-bold-7">Tabs</h3>
-    <hr style="margin:1px;">
-    <hr style="margin:1px;">
 
     <div class="row">
       <div class="compo_tab">
-        <div class="col-md-6 col-sm-6 text-left">
+        <div class="">
           <div class="compo_title">
-            <h4 class="h4">{{ delivery.Delivery_ID }}</h4>
-          </div>
-          <ul class="nav-tab nav nav-pills">
-            <li class="active"><a href="#home-1" data-toggle="tab">Tab 01</a></li>
-            <li><a href="#profile" data-toggle="tab">Tab 02</a></li>
-            <li><a href="#messages" data-toggle="tab">Tab 03</a></li>
-            <li><a href="#settings" data-toggle="tab">Tab 04</a></li>
-          </ul>
-
-          <!-- Tab panes -->
-          <div class="tab-content">
-            <div class="tab-pane fade in active" id="home-1">
-              <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
-            </div>
-            <div class="tab-pane fade" id="profile">
-              <p>Mauris accumsan nulla vel diam. Sed in lacus ut enim adipiscing aliquet. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Donec sit amet eros.Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Donec sit amet eros.</p>
-            </div>
-            <div class="tab-pane fade" id="messages">
-              <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
-            </div>
-            <div class="tab-pane fade" id="settings">
-              <p>Mauris accumsan nulla vel diam. Sed in lacus ut enim adipiscing aliquet. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Donec sit amet eros.Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Donec sit amet eros.Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-sm-6 text-left">
-          <div class="compo_title">
-            <h4 class="h4">Variant 02</h4>
+            <h3 class="h3 text-left">Хүргэлт: {{ delivery.Delivery_ID }}</h3>
+            <hr>
           </div>
 
           <ul class="nav nav-tabs nav-justified">
-            <li class="active"><a href="#tab-5" data-toggle="tab">Tab 01</a></li>
-            <li><a href="#tab-6" data-toggle="tab">Tab 02</a></li>
-            <li><a href="#tab-7" data-toggle="tab">Tab 03</a></li>
-            <li><a href="#tab-8" data-toggle="tab">Tab 04</a></li>
+            <li class="active"><a href="#tab-5" data-toggle="tab">Хүргэлтийн явц</a></li>
+            <li><a href="#tab-6" data-toggle="tab">Хүргэлтийн мэдээлэл</a></li>
           </ul>
 
           <!-- Tab panes -->
           <div class="tab-content">
             <div class="tab-pane fade in active" id="tab-5">
-              <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+              <h5 class="text-left">Хүргэлтийн төлөв: <strong>{{ delivery.Status_ID.Status }}</strong></h5>
+              <h5 class="text-left">Хүргэгдэх огноо: <strong>{{ delivery.Delivery_Est_Date|date:"Y M d" }}</strong></h5>
             </div>
             <div class="tab-pane fade" id="tab-6">
               <p>Mauris accumsan nulla vel diam. Sed in lacus ut enim adipiscing aliquet. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Donec sit amet eros.Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Donec sit amet eros.</p>
-            </div>
-            <div class="tab-pane fade" id="tab-7">
-              <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
-            </div>
-            <div class="tab-pane fade" id="tab-8">
-              <p>Mauris accumsan nulla vel diam. Sed in lacus ut enim adipiscing aliquet. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Donec sit amet eros.Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Donec sit amet eros.Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
             </div>
           </div>
         </div>
