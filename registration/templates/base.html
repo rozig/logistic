@@ -8,7 +8,9 @@
   <!-- Basic Meta Tags -->
   <meta charset="utf-8">
   <!-- Title -->
-  <title>Илгээмж хүргэлтийн үйлчилгээ</title>
+  <title>{% block head_title %}{% endblock %}</title>
+  {% block extra_head %}
+  {% endblock %}
   <meta name="description" content="">
   <meta name="keywords" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -101,8 +103,42 @@
       </div>
     </div>
   </header>
-    {% block content %}
-    {% endblock %}
+  {% block body %}
+  <!--<div>
+    <strong>Menu:</strong>
+    <ul>
+      {% if user.is_authenticated %}
+      <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
+      <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
+      {% else %}
+      <li><a href="{% url 'account_login' %}">Sign In</a></li>
+      <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
+      {% endif %}
+    </ul>
+  </div>-->
+
+
+  <!-- HEADER-TITLE
+  ================================================== -->
+  {% if messages %}
+  <div class="row">
+    <div class="header-wrapper text-ca text-2">
+      <h3 style="font-size: 16px">Мэдэгдэл:</h3>
+      <ul style="color: white;">
+        {% for message in messages %}
+        <li>{{message}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- End Header-title -->
+  {% block content %}
+  {% endblock %}
+  {% endblock %}
+  {% block extra_body %}
+  {% endblock %}
   <!-- FOOTER-Top
     ================================================== -->
     <section class="footer2 bg-dark">

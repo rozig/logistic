@@ -1,0 +1,45 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}Бүртгүүлэх{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-sm-6 centered">
+        <p>Танд бүртгэл бий юу? Хэрэв тийм бол <strong><a href="{{ login_url }}">энд</a></strong> дарж нэвтэрнэ үү.</p>
+        <form class="sign_up_form text-left" id="signup_form" method="post" action="{% url 'account_signup' %}">
+          {% csrf_token %}
+          {{ form.non_field_errors }}
+          <div class="form-group">
+            <label class="control-label">Хэрэглэгчийн нэр</label>
+            <input id="id_username" type="text" name="username" class="form-control" >{{ form.username.errors }}
+          </div>
+
+          <div class="form-group">
+            <label class="control-label">Мэйл хаяг</label>
+            <input id="id_email" type="email" name="email" class="form-control" >{{ form.email.errors }}
+          </div>
+
+          <div class="form-group">
+            <label class="control-label">Нууц үг</label>
+            <input id="id_password1" type="password" name="password1" class="form-control" >{{ form.password1.errors }}
+          </div>
+
+          <div class="form-group">
+            <label class="control-label">Нууц үг давтах</label>
+            <input id="id_password2" type="password" name="password2" class="form-control" >{{ form.password2.errors }}
+          </div>
+
+          <div class="text-right">
+            <button type="submit" class="btn btn-info">Бүртгүүлэх</button>
+          </div>
+        </form>
+
+      </div> <!-- End of Col-6 -->
+    </div> <!-- End of Row -->
+  </div> <!-- End of Container -->
+</section>
+{% endblock %}

@@ -5,6 +5,15 @@ from .models import Delivery, Status, Shipment, Indication
 def index(request):
 	return render(request, 'registration/index.html')
 
+def about(request):
+	return render(request, 'registration/about-us.html')
+
+def services(request):
+	return render(request, 'registration/services.html')
+
+def contact(request):
+	return render(request, 'registration/contact-us.html')
+
 def delivery_detail(request):
     if 'id' in request.GET:
         identify = request.GET['id']

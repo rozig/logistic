@@ -1,0 +1,70 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}Нэвтрэх{% endblock %}
+{% block content %}
+
+<section class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 centered">
+            {% get_providers as socialaccount_providers %}
+            {% if socialaccount_providers %}
+            <p>{% blocktrans with site.name as site_name %}Please sign in with one
+            of your existing third party accounts. Or, <a href="{{ signup_url }}">БҮРТГҮҮЛЭХ</a>
+            for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
+            <ul class="socialaccount_providers">
+              {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+            </ul>
+
+            <div class="login-or">{% trans 'or' %}</div>
+            {% include "socialaccount/snippets/login_extra.html" %}
+
+            {% else %}
+            <p>Хэрэв танд бүртгэл байхгүй бол 
+            <strong><a href="{{ signup_url }}">энд</a></strong> даран бүртгүүлэх боломжтой.</p>
+            {% endif %}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-sm-6 centered">
+            <form class="sign_up_form text-left" method="POST" action="{% url 'account_login' %}">
+              {% csrf_token %}
+              {{ form.non_field_errors }}
+              <div class="form-group">
+                <label>Мэйл хаяг эсвэл нэр</label>
+                <input id="id_login" type="text" name="login" class="form-control" maxlength="30">{{ form.login.errors }}
+              </div>
+              <div class="form-group">
+                <label>Нууц үг</label>
+                <input id="id_password" type="password" name="password" class="form-control">{{ form.password.errors }}
+              </div>
+              <div class="form-group">
+                {% if redirect_field_value %}
+                  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
+              </div>
+              <div class="form-group">
+                <div class="checkbox fl-left margin-0">
+                  <label for="id_remember">
+                    <input id="id_remember" name="remember" type="checkbox">Намайг сана
+                  </label>
+                </div>
+                <div class="text-right">
+                  <a href="{% url 'account_reset_password' %}">Нууц үгээ мартсан уу?</a>
+                </div>
+              </div>
+
+              <div class="text-right padding-t-10">
+                <button type="submit" class="btn btn-info">Нэвтрэх</button>
+              </div>
+            </form> 
+
+          </div> <!-- End of Col-6 -->
+        </div> <!-- End of Row -->
+      </div>  <!-- End of Container -->
+    </section>
+    
+{% endblock %}
