@@ -1,10 +1,11 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.core.mail import send_mail, BadHeaderError
 from django.utils import timezone
 from io import BytesIO
 from reportlab.pdfgen import canvas
 from django.http import HttpResponse
 from .models import Delivery, Status, Shipment, Indication
-
+from .forms import ContactForm
 def index(request):
 	return render(request, 'registration/index.html')
 
@@ -14,8 +15,24 @@ def about(request):
 def services(request):
 	return render(request, 'registration/services.html')
 
-def contact(request):
-	return render(request, 'registration/contact-us.html')
+def contact_us(request):
+    if request.method == 'GET':
+        form = ContactForm()
+    else:
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            subject = form.cleaned_data['subject']
+            from_email = form.cleaned_data['from_email']
+            message = form.cleaned_data['message']
+            try:
+                send_mail(subject, message, from_email, ['the.ganzorig25@gmail.com'])
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            return redirect('thanks')
+    return render(request, "contact_form/contact_form.html", {'form': form})
+
+def thanks(request):
+    return render(request, 'contact_form/contact_form_sent.html')
 
 def delivery_detail(request):
     if 'id' in request.GET:

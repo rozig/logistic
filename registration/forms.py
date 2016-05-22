@@ -1,10 +1,7 @@
 from django import forms
 
-class SignupForm(forms.Form):
-    first_name = forms.CharField(max_length=30, label='Voornaam')
-    last_name = forms.CharField(max_length=30, label='Achternaam')
+class ContactForm(forms.Form):
 
-    def signup(self, request, user):
-        user.first_name = self.cleaned_data['first_name']
-        user.last_name = self.cleaned_data['last_name']
-        user.save()
+    from_email = forms.EmailField(required=True)
+    subject = forms.CharField(required=True)
+    message = forms.CharField(widget=forms.Textarea)

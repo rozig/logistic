@@ -23,24 +23,37 @@
             <h3 class="h3 text-left">Хүргэлт: {{ delivery.Delivery_ID }}</h3>
             <hr>
           </div>
-
-          <ul class="nav nav-tabs nav-justified">
-            <li class="active"><a href="#tab-5" data-toggle="tab">Хүргэлтийн явц</a></li>
-            <li><a href="#tab-6" data-toggle="tab">Хүргэлтийн мэдээлэл</a></li>
-          </ul>
-
-          <!-- Tab panes -->
-          <div class="tab-content">
-            <div class="tab-pane fade in active" id="tab-5">
+          <div class="row">
+            <div class="col-md-6">
               <h5 class="text-left">Хүргэлтийн төлөв: <strong>{{ delivery.Status_ID.Status }}</strong></h5>
+              {% if delivery.Status_Reason %}
+                <h5 class="text-left">Шалтгаан: <strong>{{ delivery.Status_Reason }}</strong></h5>
+              {% endif %}
               <h5 class="text-left">Хүргэгдэх огноо: <strong>{{ delivery.Delivery_Est_Date|date:"Y M d" }}</strong></h5>
+              <h5 class="text-left">Нийт төлбөр: <strong>{{ delivery.Delivery_Total }}₮</strong></h5>
+              <hr>
+              <h5 class="text-left">Илгээгч: <strong>{{ delivery.Delivery_Sender }}</strong></h5>
+              <h5 class="text-left">Илгээгчийн утасны дугаар: <strong>{{ delivery.Delivery_Sender_Phone }}</strong></h5>
+              <h5 class="text-left">Илгээгчийн хаяг: <strong>{{ delivery.State_ID.State }}, {{ delivery.SubState_ID.SubState }}, {{ delivery.From_Address }}</strong></h5>
+              <br>
+              <h5 class="text-left">Хүлээн авагч: <strong>{{ delivery.Delivery_Recipient }}</strong></h5>
+              <h5 class="text-left">Хүлээн авагчийн утасны дугаар: <strong>{{ delivery.Delivery_Recipient_Phone }}</strong></h5>
+              <h5 class="text-left">Хүлээн авагчийн хаяг: <strong>{{ delivery.To_State_ID.State }}, {{ delivery.To_SubState_ID.SubState }}, {{ delivery.To_Address }}</strong></h5>
             </div>
-            <div class="tab-pane fade" id="tab-6">
-              <p>Mauris accumsan nulla vel diam. Sed in lacus ut enim adipiscing aliquet. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Donec sit amet eros.Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Donec sit amet eros.</p>
+            <div class="col-md-6">
+              {% if delivery.Status_ID == 3 %}
+                {% if delivery.Recipient_Signature %}
+                  <h4 class="h5 text-left">Хүлээн авагчийн бичиг баримт, гарын үсэг:</h4>
+                  <img class="img-responsive" src="{{ delivery.Recipient_Signature.url }}" alt="sign"/>
+                {% else %}
+                <img class="img-responsive" src="{% static 'tracking.png' %}">
+                {% endif %}
+              {% else %}
+                <img class="img-responsive" src="{% static 'tracking.png' %}">
+              {% endif %}
             </div>
           </div>
         </div>
-
       </div>
     </div>     
   </div>

@@ -4,6 +4,10 @@
 from __future__ import unicode_literals
 from django.utils.crypto import get_random_string
 from django.db import models, IntegrityError
+import os
+
+def get_image_path(instance, filename):
+    return os.path.join('signature', str(instance.Delivery_ID), filename)
 
 class Delivery(models.Model):
     Delivery_ID = models.CharField(primary_key=True, max_length=8, blank=True, editable=False, null=False, verbose_name=u'Хүргэлтийн дугаар')
@@ -11,13 +15,21 @@ class Delivery(models.Model):
     Delivery_Est_Date = models.DateField(null=False, verbose_name=u'Хүргэгдэх огноо')
     Delivery_Sender = models.CharField(max_length=45, null=False, verbose_name=u'Илгээгчийн нэр')
     Delivery_Sender_Phone = models.CharField(max_length=8, null=False, verbose_name=u'Илгээгчийн утасны дугаар')
-    Delivery_From_Address = models.CharField(max_length=255, null=False, verbose_name=u'Илгээгчийн хаяг')
+    State_ID = models.ForeignKey('registration.State', verbose_name=u'Хот/Аймаг')
+    SubState_ID = models.ForeignKey('registration.SubState', verbose_name=u'Дүүрэг/Сум', related_name='from_substate')
+    From_Address = models.CharField(max_length=255, null=False, verbose_name=u'Илгээгчийн хаяг')
     Delivery_Recipient = models.CharField(max_length=45, null=False, verbose_name=u'Хүлээн авагчийн нэр')
     Delivery_Recipient_Phone = models.CharField(max_length=8, null=False, verbose_name=u'Хүлээн авагчийн утасны дугаар')
-    Delivery_To_Address = models.CharField(max_length=255, null=False, verbose_name=u'Хүлээн авагчийн хаяг')
+    To_State_ID = models.ForeignKey('registration.State', verbose_name=u'Хот/Аймаг', related_name='to_state')
+    To_SubState_ID = models.ForeignKey('registration.SubState', verbose_name=u'Дүүрэг/Сум', related_name='to_substate')
+    To_Address = models.CharField(max_length=255, null=False, verbose_name=u'Хүлээн авагчийн хаяг')
     Delivery_Total = models.FloatField(null=False, verbose_name=u'Нийт төлбөр')
     Status_ID = models.ForeignKey('registration.Status', verbose_name=u'Төлөв')
-    #Shipment_ID = models.ForeignKey('registration.Shipment', verbose_name=u'Ачаанууд')
+    Status_Reason = models.CharField(max_length=255, blank=True, null=True, verbose_name=u'Төлвийн шалтгаан')
+    Recipient_Signature = models.ImageField(upload_to=get_image_path, blank=True, null=True, verbose_name=u'Гарын үсэг')
+
+    def __str__(self):
+        return self.Delivery_ID
 
     def __unicode__(self):
         return u'%s' % self.Delivery_ID
@@ -95,21 +107,21 @@ class Indication(models.Model):
 class State(models.Model):
     State_ID = models.AutoField(primary_key=True, null=False, verbose_name=u'Аймаг/нийслэлийн дугаар')
     State = models.CharField(max_length=45, null=False, verbose_name=u'Аймаг/нийслэлийн нэр')
-
     def __unicode__(self):
         return u'%s' % self.State
 
     class Meta:
         verbose_name = u'Аймаг/нийслэл'
+        verbose_name_plural = u'Аймаг/нийслэл'
 
-class SubState(object):
+class SubState(models.Model):
     SubState_ID = models.AutoField(primary_key=True, null=False, verbose_name=u'Сум/дүүргийн дугаар')
     SubState = models.CharField(max_length=45, null=False, verbose_name=u'Сум/дүүргийн нэр')
+    State_ID = models.ForeignKey(State, verbose_name=u'Хот/Аймаг')
 
     def __unicode__(self):
         return u'%s' % self.SubState
 
     class Meta:
         verbose_name = u'Сум/дүүрэг'
-            
-        
+        verbose_name_plural = u'Сум/дүүрэг'

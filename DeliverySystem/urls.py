@@ -18,16 +18,26 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf.urls.static import static
 
+from registration import views
+from registration.forms import ContactForm
+
 urlpatterns = [
     #Django-Jet URLs
 	url(r'^jet/', include('jet.urls', 'jet')),
 	url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
     
     #Django default URLs
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin/', admin.site.urls, name='admin'),
     url(r'', include('registration.urls', namespace='registration')),
     url(r'^news/', include('news.urls', namespace='news')),
     
     #Django-AllAuth URLs
     url(r'^accounts/', include('allauth.urls')),
+
+    #ContactForm URLs
+    url(r'^contact-us/$', views.contact_us, name='contact-us'),
+    url(r'^thanks/$', views.thanks, name='thanks'),
+    
+    #Report URLs
+    url(r'^report_builder/', include('report_builder.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

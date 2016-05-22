@@ -33,20 +33,20 @@
             <form class="sign_up_form text-left" method="POST" action="{% url 'account_login' %}">
               {% csrf_token %}
               {{ form.non_field_errors }}
-              <div class="form-group">
+              <div class="form-group form-custom">
                 <label>Мэйл хаяг эсвэл нэр</label>
-                <input id="id_login" type="text" name="login" class="form-control" maxlength="30">{{ form.login.errors }}
+                <input id="id_login" type="text" name="login" class="form-control" maxlength="30" placeholder="Мэйл хаяг эсвэл нэрээ оруулна уу">{{ form.login.errors }}
               </div>
-              <div class="form-group">
+              <div class="form-group form-custom">
                 <label>Нууц үг</label>
-                <input id="id_password" type="password" name="password" class="form-control">{{ form.password.errors }}
+                <input id="id_password" type="password" name="password" class="form-control" placeholder="Нууц үгээ оруулна уу">{{ form.password.errors }}
               </div>
-              <div class="form-group">
+              <div class="form-group form-custom">
                 {% if redirect_field_value %}
                   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
               </div>
-              <div class="form-group">
+              <div class="form-group form-custom">
                 <div class="checkbox fl-left margin-0">
                   <label for="id_remember">
                     <input id="id_remember" name="remember" type="checkbox">Намайг сана

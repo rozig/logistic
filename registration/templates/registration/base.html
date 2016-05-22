@@ -31,9 +31,12 @@
     <!-- Styles -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
     <!-- Web Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,600,800,700' rel='stylesheet' type='text/css'>
+    <!--<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic' rel='stylesheet' type='text/css'>-->
+    <link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <!--<link href='http://fonts.googleapis.com/css?family=Raleway:400,600,800,700' rel='stylesheet' type='text/css'>-->
+    <link href='https://fonts.googleapis.com/css?family=Roboto&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
     <script src="{% static 'js/modernizr.custom.97074.js' %}"></script>
+
   </head>
   <body>
    <!-- Header -->
@@ -77,14 +80,14 @@
             </li>
 
             <li>
-              <a href="{% url 'registration:contact' %}">Холбоо барих</a>
+              <a href="{% url 'contact-us' %}">Холбоо барих</a>
             </li>
             {% if user.is_authenticated %}
               <li class="dropdown">
                 <a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">Бүртгэл</a>
                 <ul class="dropdown-menu wow fadeInDown">
                   <li>
-                    <a href="" title="">Удирдах</a>
+                    <a href="/admin" title="">Удирдах</a>
                   </li>
                   <li>
                     <a href="{% url 'account_email' %}" title="">Мэйл хаяг солих</a>

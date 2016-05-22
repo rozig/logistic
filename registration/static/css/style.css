@@ -26,7 +26,7 @@
 body{
 	overflow-x: hidden;
 	overflow-y: scroll;
-	font-family: 'Lato', sans-serif;
+	font-family: 'PT Sans Narrow', sans-serif;
 	color: #333b4d;
 	text-align: center;
 }
@@ -154,7 +154,7 @@ ul.social li i:hover{
 	color: #fff;
 }
 .text-2{
-	font-family: 'Raleway', sans-serif;
+	font-family: 'Roboto', sans-serif;
 }
 .text-16{
 	font-size: 16px;
@@ -195,7 +195,7 @@ a:hover{
 }
 .h1,.h2,.h3,.h4,.h5,.h6{
 	text-transform: uppercase;
-	font-family: 'Raleway', sans-serif;
+	font-family: 'Roboto', sans-serif;
 }
 
 
@@ -369,7 +369,7 @@ span.icon-bar{
 	font-weight: 300;
 	text-transform: uppercase;
 	margin: 30px 15px;
-	font-family: 'Raleway', sans-serif;
+	font-family: 'Roboto', sans-serif;
 }
 
 .flexcaption h1 span {
@@ -846,7 +846,7 @@ span.icon-bar{
 }
 .team-member p{
 	font-size: 12px;
-	font-family: 'Raleway', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	padding-bottom: 20px;
 	color: rgba(51,59,77,.5);
 }
@@ -1141,7 +1141,7 @@ span.icon-bar{
 
 .blog_item_list h3{
 	margin-top: 10px;
-	font-family: 'Raleway', sans-serif;
+	font-family: 'Roboto', sans-serif;
 }
 .blog-1_meta span{
 	font-style: italic;
@@ -1270,7 +1270,7 @@ span.icon-bar{
 	float:right;
 	color:#5bc4be;
 	font-size: 14px;
-	font-family: 'Raleway', sans-serif;
+	font-family: 'Roboto', sans-serif;
 }
 
 /* --------Sub-media--------*/
@@ -1353,7 +1353,7 @@ span.icon-bar{
 	font-size: 120px;
 	font-weight: 600;
 	color: rgba(51,59,77,.5);
-	font-family: 'Raleway', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	line-height: 0;
 	margin-bottom: 20px;
 	margin-top: 0px;
@@ -1713,7 +1713,7 @@ span.icon-bar{
 .footer2 h4 span{
 	color: #fff;
 	font-weight: 600;
-	font-family: 'Raleway', sans-serif;
+	font-family: 'Roboto', sans-serif;
 }
 .footer2 ul{
 	list-style: none;
@@ -1740,7 +1740,7 @@ span.icon-bar{
 	color: rgba(255,255,255,0.5);
 	font-size: 12px;
 	padding: 10px 20px 0px 0px;
-	font-family: 'Raleway', sans-serif;
+	font-family: 'Roboto', sans-serif;
 	text-align: justify;
 }
 .flickr-img li{
