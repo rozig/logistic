@@ -4,6 +4,7 @@
 from __future__ import unicode_literals
 from django.utils.crypto import get_random_string
 from django.db import models, IntegrityError
+from django.contrib.auth.models import User
 import os
 
 def get_image_path(instance, filename):
@@ -27,6 +28,7 @@ class Delivery(models.Model):
     Status_ID = models.ForeignKey('registration.Status', verbose_name=u'Төлөв')
     Status_Reason = models.CharField(max_length=255, blank=True, null=True, verbose_name=u'Төлвийн шалтгаан')
     Recipient_Signature = models.ImageField(upload_to=get_image_path, blank=True, null=True, verbose_name=u'Гарын үсэг')
+    User = models.ForeignKey(User, editable=True, blank=True, null=True, limit_choices_to={'groups__name': u"Хэрэглэгч"}, verbose_name=u'Хэрэглэгч')
 
     def __str__(self):
         return self.Delivery_ID

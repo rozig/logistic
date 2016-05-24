@@ -30,15 +30,19 @@
                 <h5 class="text-left">Шалтгаан: <strong>{{ delivery.Status_Reason }}</strong></h5>
               {% endif %}
               <h5 class="text-left">Хүргэгдэх огноо: <strong>{{ delivery.Delivery_Est_Date|date:"Y M d" }}</strong></h5>
-              <h5 class="text-left">Нийт төлбөр: <strong>{{ delivery.Delivery_Total }}₮</strong></h5>
-              <hr>
-              <h5 class="text-left">Илгээгч: <strong>{{ delivery.Delivery_Sender }}</strong></h5>
-              <h5 class="text-left">Илгээгчийн утасны дугаар: <strong>{{ delivery.Delivery_Sender_Phone }}</strong></h5>
-              <h5 class="text-left">Илгээгчийн хаяг: <strong>{{ delivery.State_ID.State }}, {{ delivery.SubState_ID.SubState }}, {{ delivery.From_Address }}</strong></h5>
-              <br>
-              <h5 class="text-left">Хүлээн авагч: <strong>{{ delivery.Delivery_Recipient }}</strong></h5>
-              <h5 class="text-left">Хүлээн авагчийн утасны дугаар: <strong>{{ delivery.Delivery_Recipient_Phone }}</strong></h5>
-              <h5 class="text-left">Хүлээн авагчийн хаяг: <strong>{{ delivery.To_State_ID.State }}, {{ delivery.To_SubState_ID.SubState }}, {{ delivery.To_Address }}</strong></h5>
+              {% if request.user.is_authenticated %}
+                {% if request.user.username == delivery.User.username %}
+                  <h5 class="text-left">Нийт төлбөр: <strong>{{ delivery.Delivery_Total }}₮</strong></h5>
+                  <hr>
+                  <h5 class="text-left">Илгээгч: <strong>{{ delivery.Delivery_Sender }}</strong></h5>
+                  <h5 class="text-left">Илгээгчийн утасны дугаар: <strong>{{ delivery.Delivery_Sender_Phone }}</strong></h5>
+                  <h5 class="text-left">Илгээгчийн хаяг: <strong>{{ delivery.State_ID.State }}, {{ delivery.SubState_ID.SubState }}, {{ delivery.From_Address }}</strong></h5>
+                  <br>
+                  <h5 class="text-left">Хүлээн авагч: <strong>{{ delivery.Delivery_Recipient }}</strong></h5>
+                  <h5 class="text-left">Хүлээн авагчийн утасны дугаар: <strong>{{ delivery.Delivery_Recipient_Phone }}</strong></h5>
+                  <h5 class="text-left">Хүлээн авагчийн хаяг: <strong>{{ delivery.To_State_ID.State }}, {{ delivery.To_SubState_ID.SubState }}, {{ delivery.To_Address }}</strong></h5>
+                {% endif %}
+              {% endif %}
             </div>
             <div class="col-md-6">
               {% if delivery.Status_ID == 3 %}

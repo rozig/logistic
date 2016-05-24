@@ -6,7 +6,7 @@ from .models import Delivery, Status, Shipment, Indication, Type, State, SubStat
 #from registration import forms
 
 class DeliveryAdmin(admin.ModelAdmin):
-    list_display = ('Delivery_ID', 'Delivery_Reg_Time', 'Delivery_Est_Date', 'Delivery_Sender', 'Delivery_Recipient', 'Delivery_Total')
+    list_display = ('Delivery_ID', 'Delivery_Reg_Time', 'Delivery_Est_Date', 'Delivery_Sender', 'Delivery_Recipient', 'Delivery_Total', 'User')
 
 class StatusAdmin(admin.ModelAdmin):
 	list_display = ('Status_ID', 'Status')
