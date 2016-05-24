@@ -6,16 +6,22 @@ from reportlab.pdfgen import canvas
 from django.http import HttpResponse
 from .models import Delivery, Status, Shipment, Indication
 from .forms import ContactForm
+from news.models import Post
+
 def index(request):
-	return render(request, 'registration/index.html')
+    posts = Post.objects.order_by('-Published_Date')[0:3]
+    return render(request, 'registration/index.html', {'posts': posts})
 
 def about(request):
-	return render(request, 'registration/about-us.html')
+    posts = Post.objects.order_by('-Published_Date')[0:3]
+    return render(request, 'registration/about-us.html', {'posts': posts})
 
 def services(request):
-	return render(request, 'registration/services.html')
+    posts = Post.objects.order_by('-Published_Date')[0:3]
+    return render(request, 'registration/services.html', {'posts': posts})
 
 def contact_us(request):
+    posts = Post.objects.order_by('-Published_Date')[0:3]
     if request.method == 'GET':
         form = ContactForm()
     else:
@@ -29,16 +35,18 @@ def contact_us(request):
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
             return redirect('thanks')
-    return render(request, "contact_form/contact_form.html", {'form': form})
+    return render(request, "contact_form/contact_form.html", {'posts': posts, 'form': form})
 
 def thanks(request):
-    return render(request, 'contact_form/contact_form_sent.html')
+    posts = Post.objects.order_by('-Published_Date')[0:3]
+    return render(request, 'contact_form/contact_form_sent.html', {'posts': posts})
 
 def delivery_detail(request):
+    posts = Post.objects.order_by('-Published_Date')[0:3]
     if 'id' in request.GET:
         identify = request.GET['id']
     	delivery = get_object_or_404(Delivery, pk=identify)
-        return render(request, 'registration/view_delivery.html', {'delivery': delivery})
+        return render(request, 'registration/view_delivery.html', {'delivery': delivery, 'posts': posts})
 
 def report(request):
     # Create the HttpResponse object with the appropriate PDF headers.

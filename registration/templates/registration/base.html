@@ -39,16 +39,24 @@
 
   </head>
   <body>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/mn_MN/sdk.js#xfbml=1&version=v2.6&appId=1495178527363069";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
    <!-- Header -->
    <header> 
-    <div class="row">
+    <!--<div class="row">
       <div class="col-md-12">
         <div class="top-container">
-          <!-- Logo -->                       
+          <!-- Logo --                       
           <a href="#" class="logo" title="Home"><img src="{% static 'img/logo.png' %}" alt=""></a>
         </div>
       </div> 
-    </div> 
+    </div> -->
 
     <!-- Nav -->
     <div class="navbar navbar-custom" id="nav" role="navigation">
@@ -116,8 +124,8 @@
         <div class="row">
 
           <!-- About-US-->
-          <div class="col-md-3 col-sm-6 footer-text">
-            <h4>About <span>&nbsp;us</span></h4>
+          <div class="col-md-4 col-sm-6 footer-text">
+            <h4>Бидний <span>&nbsp;тухай</span></h4>
             <p>Lorem ipsum dolor sit amet, consect eturadi piscing elit. Praesent quam nisi, malesu ada aleo nec, luctus vive rra quam nisi, malesua da a nisi uada.</p>
               <ul class="social-links margin-t-35">
                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -129,29 +137,21 @@
           </div>
 
           <!-- Recent-Post-->
-          <div class="col-md-3 col-sm-6">
-            <h4>Recent <span>&nbsp;Posts</span></h4>
+          <div class="col-md-4 col-sm-6">
+            <h4>Шинээр <span>&nbsp;нэмэгдсэн</span></h4>
             <ul class="list-unstyled">
+              {% for post in posts %}
               <li>
-                <a class="block" href="#">Praesent est laborum dolo rumes fugats.</a>
+                <a class="block" href="{% url 'news:post_detail' pk=post.pk %}">{{ post.Title }}</a>
                 <br>
-                <small>August 16, 2014</small>
+                <small>{{ post.Published_Date }}</small>
               </li>
-              <li>
-                <a class="block" href="#">Etha rums ser quidem rerum facilis</a>
-                <br>
-                <small>August 16, 2014</small>
-              </li>
-              <li>
-                <a class="block" href="#">nemo minima rerums unsers sadip</a>
-                <br>
-                <small>August 16, 2014</small>
-              </li>
+              {% endfor %}
             </ul>
           </div>
 
           <!-- Recent-Tweets-->
-          <div class="col-md-3 col-sm-6">
+          <div class="col-md-4 col-sm-6">
             <h4>Recent <span>&nbsp;Tweets</span></h4>
             <ul class="list-unstyled">
               <li>
@@ -162,20 +162,6 @@
               </li>
             </ul>
           </div>
-
-          <!-- Flickr-Photos-->
-          <div class="col-md-3 col-sm-6">
-            <h4>Flickr <span>&nbsp;Photos</span></h4>
-            <ul class="flickr-img">
-              <li><a href="#"><img class="img-responsive" src="{% static 'img/portfolio/port3.jpg' %}" alt=""></a></li>
-              <li><a href="#"><img class="img-responsive" src="{% static 'img/portfolio/port4.jpg' %}" alt=""></a></li>
-              <li><a href="#"><img class="img-responsive" src="{% static 'img/portfolio/port2.jpg' %}" alt=""></a></li>
-              <li><a href="#"><img class="img-responsive" src="{% static 'img/portfolio/port6.jpg' %}" alt=""></a></li>
-              <li><a href="#"><img class="img-responsive" src="{% static 'img/portfolio/port7.jpg' %}" alt=""></a></li>
-              <li><a href="#"><img class="img-responsive" src="{% static 'img/portfolio/port8.jpg' %}" alt=""></a></li>
-            </ul>
-          </div>
-          
         </div>
       </div>
     </section>

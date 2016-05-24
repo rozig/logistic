@@ -11,6 +11,7 @@ class Post(models.Model):
     Created_Date = models.DateTimeField(default=timezone.now, verbose_name=u'Үүсгэсэн огноо')
     Published_Date = models.DateTimeField(blank=True, null=True, verbose_name=u'Нийтлэсэн огноо')
     Image = models.ImageField(upload_to='news/%Y/%m/%d/', verbose_name=u'Зураг')
+    
     def publish(self):
         self.Published_Date = timezone.now()
         self.save()
