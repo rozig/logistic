@@ -18,8 +18,13 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf.urls.static import static
 
-from registration import views
+from registration import views as registration_views
 from registration.forms import ContactForm
+
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+router.register(r'delivery', registration_views.DeliveryViewSet)
 
 urlpatterns = [
     #Django-Jet URLs
@@ -30,13 +35,14 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls, name='admin'),
     url(r'', include('registration.urls', namespace='registration')),
     url(r'^news/', include('news.urls', namespace='news')),
-    
+    url(r'^api/', include(router.urls)),
+
     #Django-AllAuth URLs
     url(r'^accounts/', include('allauth.urls')),
 
     #ContactForm URLs
-    url(r'^contact-us/$', views.contact_us, name='contact-us'),
-    url(r'^thanks/$', views.thanks, name='thanks'),
+    url(r'^contact-us/$', registration_views.contact_us, name='contact-us'),
+    url(r'^thanks/$', registration_views.thanks, name='thanks'),
     
     #Report URLs
     url(r'^report_builder/', include('report_builder.urls')),

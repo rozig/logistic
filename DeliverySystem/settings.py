@@ -41,10 +41,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #Apps
     'registration',
     'news',
 
+    #Report
     'report_builder',
+
+    #Django REST
+    'rest_framework',
+    'rest_framework.authtoken',
 
     #All-Auth
     'django.contrib.sites',

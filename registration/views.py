@@ -7,6 +7,8 @@ from django.http import HttpResponse
 from .models import Delivery, Status, Shipment, Indication
 from .forms import ContactForm
 from news.models import Post
+from rest_framework import viewsets
+from .serializers import DeliverySerializer
 
 def index(request):
     posts = Post.objects.order_by('-Published_Date')[0:3]
@@ -71,3 +73,7 @@ def report(request):
     buffer.close()
     response.write(pdf)
     return response
+
+class DeliveryViewSet(viewsets.ModelViewSet):
+    queryset = Delivery.objects.all().order_by('-Delivery_Reg_Time')
+    serializer_class = DeliverySerializer
